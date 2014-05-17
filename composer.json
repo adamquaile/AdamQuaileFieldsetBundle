@@ -1,6 +1,7 @@
 {
     "name": "adamquaile/symfony-fieldset-bundle",
     "version": "0.0.0",
+    "license": "MIT",
     "type": "symfony-bundle",
     "description": "Fieldset Type in Symfony Forms",
     "require": {
