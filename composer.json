@@ -1,0 +1,24 @@
+{
+    "name": "adamquaile/symfony-fieldset-bundle",
+    "type": "symfony-bundle",
+    "description": "Fieldset Type in Symfony Forms",
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+    },
+    "suggest": {
+    },
+    "authors": [
+        {
+            "name": "Adam Quaile",
+            "email": "adamquaile@gmail.com"
+        }
+    ],
+    "keywords": ["fieldset", "symfony", "forms"],
+    "autoload": {
+        "psr-4": {
+            "AdamQuaile\\Bundle\\FieldsetBundle\\": ["", "Tests/"]
+        }
+    }
+}

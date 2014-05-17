@@ -1,0 +1,12 @@
+parameters:
+#    adam_quaile_fieldset.example.class: AdamQuaile\Bundle\FieldsetBundle\Example
+
+services:
+#    adam_quaile_fieldset.example:
+#        class: %adam_quaile_fieldset.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    adamquaile.fieldset.type:
+        class: AdamQuaile\Bundle\FieldsetBundle\Form\FieldsetType
+        arguments: []
+        tags:
+            - { name: form.type, alias: fieldset }
