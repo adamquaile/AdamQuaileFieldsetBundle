@@ -5,9 +5,13 @@
     "type": "symfony-bundle",
     "description": "Fieldset Type in Symfony Forms",
     "require": {
-        "php": ">=5.4"
+        "php": ">=5.3.3"
     },
     "require-dev": {
+        "symfony/dependency-injection": "~2.5.0",
+        "symfony/config": "~2.5.0",
+        "symfony/form": "~2.5.0",
+        "symfony/http-kernel" : "~2.5.0"
     },
     "suggest": {
     },

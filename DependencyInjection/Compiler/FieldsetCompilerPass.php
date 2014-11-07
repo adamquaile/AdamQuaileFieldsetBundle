@@ -5,6 +5,10 @@ namespace AdamQuaile\Bundle\FieldsetBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
+/**
+ * Class FieldsetCompilerPass
+ * @package AdamQuaile\Bundle\FieldsetBundle\DependencyInjection\Compiler
+ */
 class FieldsetCompilerPass implements CompilerPassInterface
 {
     /**
