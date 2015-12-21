@@ -20,6 +20,10 @@ class FieldsetType extends AbstractType {
             'inherit_data'   => true,
             'options'   => array(),
             'fields'    => array(),
+            'label'     => false,
+        ))
+        ->addAllowedTypes(array(
+            'fields' => array('array', 'callable'),
         ));
     }
 
@@ -30,9 +34,13 @@ class FieldsetType extends AbstractType {
     public function buildForm ( FormBuilderInterface $builder, array $options )
     {
         if ( !empty($options['fields']) ) {
-
-            foreach ( $options['fields'] as $field ) {
-                $builder->add($field['name'], $field['type'], $field['attr']);
+            if ( is_callable($options['fields']) ) {
+                $options['fields']($builder);
+            }
+            elseif ( is_array($options['fields']) ) {
+                foreach ( $options['fields'] as $field ) {
+                    $builder->add($field['name'], $field['type'], $field['attr']);
+                }
             }
         }
     }
