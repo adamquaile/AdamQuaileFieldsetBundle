@@ -2,7 +2,7 @@
         <fieldset {{ block('widget_container_attributes') }}>
 
             {% if legend is defined and legend is not empty %}
-                <legend>{{ legend }}</legend>
+                <legend>{{ legend | trans({}, translation_domain) }}</legend>
             {% endif %}
             {{ form_widget(form) }}
 
