@@ -8,37 +8,35 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FieldsetType extends AbstractType {
-
+class FieldsetType extends AbstractType
+{
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function configureOptions ( OptionsResolver $resolver )
+    public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'legend'    => '',
-            'inherit_data'   => true,
-            'options'   => array(),
-            'fields'    => array(),
-            'label'     => false,
-        ))
-        ->addAllowedTypes(array(
-            'fields' => array('array', 'callable'),
-        ));
+        $resolver
+            ->setDefaults([
+                'legend' => '',
+                'inherit_data' => true,
+                'options' => array(),
+                'fields' => array(),
+                'label' => false,
+            ])
+            ->addAllowedTypes('fields', ['array', 'callable']);
     }
 
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
-    public function buildForm ( FormBuilderInterface $builder, array $options )
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        if ( !empty($options['fields']) ) {
-            if ( is_callable($options['fields']) ) {
+        if (!empty($options['fields'])) {
+            if (is_callable($options['fields'])) {
                 $options['fields']($builder);
-            }
-            elseif ( is_array($options['fields']) ) {
-                foreach ( $options['fields'] as $field ) {
+            } elseif (is_array($options['fields'])) {
+                foreach ($options['fields'] as $field) {
                     $builder->add($field['name'], $field['type'], $field['attr']);
                 }
             }
@@ -46,11 +44,11 @@ class FieldsetType extends AbstractType {
     }
 
     /**
-     * @param FormView $view
+     * @param FormView      $view
      * @param FormInterface $form
-     * @param array $options
+     * @param array         $options
      */
-    public function buildView ( FormView $view, FormInterface $form, array $options )
+    public function buildView(FormView $view, FormInterface $form, array $options)
     {
         if (false !== $options['legend']) {
             $view->vars['legend'] = $options['legend'];
